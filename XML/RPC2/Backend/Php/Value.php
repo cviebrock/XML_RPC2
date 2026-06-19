@@ -177,13 +177,13 @@ abstract class XML_RPC2_Backend_Php_Value extends XML_RPC2_Value
         $explicitType = ucfirst(mb_strtolower($explicitType));
 
         return match ($explicitType) {
-            'I8' => XML_RPC2_Backend_Php_Value_Scalar::createFromNative($nativeValue, 'Integer64'),
+            'I8'                                              => XML_RPC2_Backend_Php_Value_Scalar::createFromNative($nativeValue, 'Integer64'),
             'I4', 'Int', 'Boolean', 'Double', 'String', 'Nil' => XML_RPC2_Backend_Php_Value_Scalar::createFromNative($nativeValue),
-            'Datetime.iso8601', 'Datetime' => new XML_RPC2_Backend_Php_Value_Datetime($nativeValue),
-            'Base64' => new XML_RPC2_Backend_Php_Value_Base64($nativeValue),
-            'Array'  => new XML_RPC2_Backend_Php_Value_Array($nativeValue),
-            'Struct' => new XML_RPC2_Backend_Php_Value_Struct($nativeValue),
-            default  => throw new XML_RPC2_Exception_InvalidTypeEncode(sprintf('Unexpected explicit encoding type \'%s\'', $explicitType)),
+            'Datetime.iso8601', 'Datetime'                    => new XML_RPC2_Backend_Php_Value_Datetime($nativeValue),
+            'Base64'                                          => new XML_RPC2_Backend_Php_Value_Base64($nativeValue),
+            'Array'                                           => new XML_RPC2_Backend_Php_Value_Array($nativeValue),
+            'Struct'                                          => new XML_RPC2_Backend_Php_Value_Struct($nativeValue),
+            default                                           => throw new XML_RPC2_Exception_InvalidTypeEncode(sprintf('Unexpected explicit encoding type \'%s\'', $explicitType)),
         };
     }
 
@@ -204,8 +204,8 @@ abstract class XML_RPC2_Backend_Php_Value extends XML_RPC2_Value
         if (count($valueType) == 1) { // Usually we must check the node name
             $nodename = dom_import_simplexml($valueType[0])->nodeName;
             $nativeType = match ($nodename) {
-                'i8' => 'Integer64',
-                'i4', 'int' => 'Integer',
+                'i8'               => 'Integer64',
+                'i4', 'int'        => 'Integer',
                 'boolean'          => 'Boolean',
                 'double'           => 'Double',
                 'string'           => 'String',
