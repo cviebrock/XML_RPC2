@@ -19,7 +19,7 @@ $options = [
     'backend' => 'Xmlrpcext',
     'prefix'  => 'validator1.',
 ];
-$client = XML_RPC2_Client::create('https://gggeek.altervista.org/sw/xmlrpc/demo/server/server.php', $options);
+$client = XML_RPC2_Client::create('https://tanoconsulting.com/sw/xmlrpc/demo/server/server.php', $options);
 $string = "foo <<< bar '> && '' #fo>o \" bar";
 $result = $client->countTheEntities($string);
 var_dump($result['ctLeftAngleBrackets']);
