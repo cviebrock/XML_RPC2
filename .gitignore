@@ -16,4 +16,6 @@ composer.phar
 composer.lock
 
 # overrides for local tooling
+phpunit.xml
+/phpstan-baseline.neon
 /phpstan.neon

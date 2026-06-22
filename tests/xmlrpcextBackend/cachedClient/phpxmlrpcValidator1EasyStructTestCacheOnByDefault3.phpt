@@ -33,7 +33,7 @@ $options = [
     'cacheDebug' => true,
 ];
 
-$client = XML_RPC2_CachedClient::create('https://gggeek.altervista.org/sw/xmlrpc/demo/server/server.php', $options);
+$client = XML_RPC2_CachedClient::create('https://tanoconsulting.com/sw/xmlrpc/demo/server/server.php', $options);
 $arg = [
     'moe'   => 5,
     'larry' => 6,
