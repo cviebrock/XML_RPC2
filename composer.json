@@ -1,41 +1,36 @@
 {
   "name": "silverorange/xml_rpc2",
   "description": "Fork of PEAR's XML_RPC2 package. Packaged for composer and working in PHP 7.",
-  "type": "library",
   "license": "LGPL-2.1",
-  "support": {
-    "docs": "http://pear.php.net/package/XML_RPC2",
-    "issues": "https://github.com/silverorange/XML_RPC2/issues",
-    "source": "https://github.com/silverorange/XML_RPC2"
-  },
+  "type": "library",
   "authors": [
     {
-      "email": "sergiosgc@php.net",
       "name": "Sergio Carvalho",
+      "email": "sergiosgc@php.net",
       "role": "Lead"
     },
     {
-      "email": "fab@php.net",
       "name": "Fabien MARTY",
+      "email": "fab@php.net",
       "role": "Developer"
     },
     {
-      "email": "jal@ambitonline.com",
       "name": "Alan Langford",
+      "email": "jal@ambitonline.com",
       "role": "Developer"
     }
   ],
-  "autoload": {
-    "psr-0": {
-      "XML_RPC2": ""
-    }
+  "support": {
+    "issues": "https://github.com/silverorange/XML_RPC2/issues",
+    "source": "https://github.com/silverorange/XML_RPC2",
+    "docs": "http://pear.php.net/package/XML_RPC2"
   },
   "require": {
     "php": ">=8.2",
     "ext-mbstring": "*",
-    "pear/pear_exception": "^1.0.0",
     "pear/http_request2": "^2.3.0",
-    "pear/pear-core-minimal": "^1.10"
+    "pear/pear-core-minimal": "^1.10",
+    "pear/pear_exception": "^1.0.0"
   },
   "require-dev": {
     "friendsofphp/php-cs-fixer": "^3.88.2",
@@ -47,18 +42,23 @@
   "suggest": {
     "pear/cache_lite": "Adds caching layer to client and server"
   },
+  "autoload": {
+    "psr-0": {
+      "XML_RPC2": ""
+    }
+  },
+  "config": {
+    "sort-packages": true
+  },
   "scripts": {
-    "test": "./vendor/bin/phpunit",
     "phpcs": "./vendor/bin/php-cs-fixer check -v",
     "phpcs:ci": "./vendor/bin/php-cs-fixer check --config=.php-cs-fixer.php --no-interaction --show-progress=none --diff --using-cache=no -vvv",
     "phpcs:fix": "./vendor/bin/php-cs-fixer fix -v",
     "phpstan": "./vendor/bin/phpstan analyze",
-    "phpstan:ci": "./vendor/bin/phpstan analyze -vvv --no-progress --memory-limit 2G",
     "phpstan:baseline": "./vendor/bin/phpstan analyze --generate-baseline",
+    "phpstan:ci": "./vendor/bin/phpstan analyze -vvv --no-progress --memory-limit 2G",
     "rector": "./vendor/bin/rector --dry-run",
-    "rector:fix": "./vendor/bin/rector"
-  },
-  "config": {
-    "sort-packages": true
+    "rector:fix": "./vendor/bin/rector",
+    "test": "./vendor/bin/phpunit"
   }
 }

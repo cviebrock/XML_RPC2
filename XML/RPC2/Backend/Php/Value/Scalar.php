@@ -74,7 +74,7 @@ abstract class XML_RPC2_Backend_Php_Value_Scalar extends XML_RPC2_Backend_Php_Va
     {
         $this->_scalarType = match ($value) {
             'nil', 'int', 'i8', 'i4', 'boolean', 'string', 'double', 'dateTime.iso8601', 'base64' => $value,
-            default                                                                               => throw new XML_RPC2_Exception_InvalidType(sprintf('Type \'%s\' is not an XML-RPC scalar type', $value)),
+            default => throw new XML_RPC2_Exception_InvalidType(sprintf('Type \'%s\' is not an XML-RPC scalar type', $value)),
         };
     }
 
@@ -103,10 +103,10 @@ abstract class XML_RPC2_Backend_Php_Value_Scalar extends XML_RPC2_Backend_Php_Va
     {
         if (is_null($explicitType)) {
             $explicitType = match (gettype($nativeValue)) {
-                'integer'                     => $nativeValue <= 2147483647 /* PHP_INT_MAX on 32 bit systems */ ? gettype($nativeValue) : 'Integer64',
-                'NULL'                        => 'Nil',
+                'integer' => $nativeValue <= 2147483647 /* PHP_INT_MAX on 32 bit systems */ ? gettype($nativeValue) : 'Integer64',
+                'NULL'    => 'Nil',
                 'boolean', 'double', 'string' => gettype($nativeValue),
-                default                       => throw new XML_RPC2_Exception_InvalidTypeEncode(
+                default => throw new XML_RPC2_Exception_InvalidTypeEncode(
                     sprintf(
                         'Impossible to encode scalar value \'%s\' from type \'%s\'. Native type is not a scalar XML_RPC type (boolean, integer, double, string)',
                         (string) $nativeValue,
