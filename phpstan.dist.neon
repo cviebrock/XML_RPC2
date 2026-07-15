@@ -3,6 +3,65 @@ parameters:
   level: 1
   paths:
     - XML
-  editorUrl: '%%file%%:%%line%%'
-  editorUrlTitle: '%%file%%:%%line%%'
+  editorUrl: '%%relfile%%:%%line%%'
+  editorUrlTitle: '%%relfile%%:%%line%%'
   errorFormat: table
+# Checks from higher levels that we want to include here
+# Level 2
+  checkClassCaseSensitivity: true
+  checkPhpDocMissingReturn: true
+#  checkThisOnly: false
+# Level 3
+  checkPhpDocMethodSignatures: true
+# Level 5
+  checkFunctionArgumentTypes: true
+
+  # @todo these errors should eventually be fixed
+  ignoreErrors:
+    -
+      message: '#^Parameter \#1 \$code of static method XML_RPC2_Backend_Php_Response\:\:encodeFault\(\) expects int, string given\.$#'
+      identifier: argument.type
+      count: 1
+      path: XML/RPC2/Backend/Php/Server.php
+
+    -
+      message: '#^Parameter \#2 \$faultCode of class XML_RPC2_Exception_Fault constructor expects string, int given\.$#'
+      identifier: argument.type
+      count: 1
+      path: XML/RPC2/Backend/Php/Server.php
+
+    -
+      message: '#^Parameter \#6 \$year of function mktime expects int\|null, string given\.$#'
+      identifier: argument.type
+      count: 1
+      path: XML/RPC2/Backend/Php/Value/Datetime.php
+
+    -
+      message: '#^Parameter \#1 \$code of static method XML_RPC2_Backend_Php_Response\:\:encodeFault\(\) expects int, string given\.$#'
+      identifier: argument.type
+      count: 1
+      path: XML/RPC2/Backend/Xmlrpcext/Server.php
+
+    -
+      message: '#^Parameter \#3 \$function of function xmlrpc_server_register_method expects string, array\<int, \$this\(XML_RPC2_Backend_Xmlrpcext_Server\)\|string\> given\.$#'
+      identifier: argument.type
+      count: 1
+      path: XML/RPC2/Backend/Xmlrpcext/Server.php
+
+    -
+      message: '#^Parameter \#1 \$uri of static method XML_RPC2_Client\:\:create\(\) expects string, array given\.$#'
+      identifier: argument.type
+      count: 1
+      path: XML/RPC2/CachedClient.php
+
+    -
+      message: '#^Parameter \#1 \$type of static method XML_RPC2_Server_Method\:\:_limitPHPType\(\) expects string, list\<string\> given\.$#'
+      identifier: argument.type
+      count: 1
+      path: XML/RPC2/Server/Method.php
+
+    -
+      message: '#^Parameter \#1 \$url of class HTTP_Request2 constructor expects Net_URL2\|string\|null, array given\.$#'
+      identifier: argument.type
+      count: 1
+      path: XML/RPC2/Util/HTTPRequest.php

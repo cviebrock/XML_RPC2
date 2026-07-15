@@ -1,5 +1,6 @@
 XML_RPC2
 ========
+
 XML_RPC2 is a package providing XML-RPC client and server services. XML-RPC is
 a simple remote procedure call protocol built using HTTP as transport and XML
 as the encoding.As a client library, XML_RPC2 is capable of creating a proxy
@@ -10,9 +11,9 @@ seamlessly exporting local methods as remotely callable procedures.
 This fork maintained by silverorange updates the package for PHP 7 and
 composer compatibility.
 
-
 Basic Usage
 -----------
+
 ```php
 <?php
 
@@ -41,6 +42,7 @@ try {
 
 Installation
 ------------
+
 Make sure the silverorange composer repository is added to the `composer.json`
 for the project and then run:
 
